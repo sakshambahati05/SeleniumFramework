@@ -1,7 +1,6 @@
 package seleniumstart;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -19,8 +18,12 @@ public class PropertiesCheck {
 //			As a part of this Properties class will be required which is a part of java.util package [ Done above ] 
 //			2. FileInputStream will be required to read from a file and input to a file [ Done below ]
 		
-			FileInputStream ip=new FileInputStream("/Users/saksham.bahati/git/SeleniumAutomationFramework/SeleniumAutomations/src/main/java/seleniumstart/config.properties");
-		prop.load(ip);
+			try {
+				FileInputStream ip=new FileInputStream("/Users/saksham.bahati/git/SeleniumAutomationFramework/SeleniumAutomations/src/main/java/seleniumstart/config.properties");
+				prop.load(ip);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		System.out.println(prop.getProperty("news"));	
 		
 	}
